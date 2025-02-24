@@ -23,8 +23,7 @@ public class JwtService {
     private String key;
 
     private final CustomUserDetailService customUserDetailService;
-//    private long expireTimeMs = 100000;
-//    private long refreshExpireTimeMs = 100000;
+
     private long expireTimeMs = 86_400_000; // 24시간 (1일)
     private long refreshExpireTimeMs = 86_400_000; // 24시간 (1일)
 
@@ -89,6 +88,10 @@ public class JwtService {
     public String extractEmail(String token){
         return extractClaims(token).get("EMAIL").toString();
     }
+    public String extractEmployeeNumber(String employeeNumber){
+        return extractClaims(employeeNumber).get("EMPLOYEE_NUMBER").toString();
+    }
+
     private Claims extractClaims(String token) {
         try {
             return Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody();

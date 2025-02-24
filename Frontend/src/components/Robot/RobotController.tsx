@@ -129,6 +129,15 @@ const RobotController: React.FC = () => {
         <button className="control-button stop" onClick={() => sendCommand("x")}>
           🛑 Stop
         </button>
+        <div className="horizontal-controls">
+        <button className="control-button send-101" onClick={() => sendCommand("auto")}>
+          📡 Auto Go
+        </button>
+        <button className="control-button send-101" onClick={() => sendCommand("mm")}>
+          📡 Auto Stop
+        </button>
+        </div>
+
       </div>
     </section>
   );
